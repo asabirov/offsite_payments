@@ -2,14 +2,10 @@
 require "rubygems"
 require "thor"
 
-require File.expand_path("../../generators/integration_generator", __FILE__)
-
-Dir[File.expand_path("../..", __FILE__) + "/generators/*.rb"].each do |generator|
-  require generator
-end
+require File.expand_path("../../lib/generators/offsite_payments/integration_generator", __FILE__)
 
 class Generate < Thor
-  register(IntegrationGenerator, "integration", "integration NAME", "Generates a new integration.")
+  register(OffsitePayments::Generators::IntegrationGenerator, "integration", "integration NAME", "Generates a new integration.")
 end
 
 Generate.start
